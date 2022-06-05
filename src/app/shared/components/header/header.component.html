@@ -1,10 +1,10 @@
 <mat-toolbar [color]="'primary'">
   <div class="toolbar-container">
-    <div><span>Mi Banco</span></div>
+    <div><span [routerLink]="['']" class='cursor-pointer'>Mi Banco</span></div>
     <div>
-      <button mat-raised-button color="basic" class="ml-5">Nuevo Destinatario</button>
-      <button mat-raised-button color="basic" class="ml-5">Transferir</button>
-      <button mat-raised-button color="basic" class="ml-5">Historial</button>
+      <button [routerLink]="['/new-recipient']" mat-raised-button color="basic" class="ml-5">Nuevo Destinatario</button>
+      <button [routerLink]="['/deposit']" mat-raised-button color="basic" class="ml-5">Transferir</button>
+      <button [routerLink]="['/history']" mat-raised-button color="basic" class="ml-5">Historial</button>
     </div>
   </div>
 </mat-toolbar>
