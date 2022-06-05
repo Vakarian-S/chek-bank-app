@@ -1,0 +1,10 @@
+<mat-toolbar [color]="'primary'">
+  <div class="toolbar-container">
+    <div><span [routerLink]="['']" class='cursor-pointer'>Mi Banco</span></div>
+    <div>
+      <button [routerLink]="['/new-recipient']" mat-raised-button color="basic" class="ml-5">Nuevo Destinatario</button>
+      <button [routerLink]="['/deposit']" mat-raised-button color="basic" class="ml-5">Transferir</button>
+      <button [routerLink]="['/history']" mat-raised-button color="basic" class="ml-5">Historial</button>
+    </div>
+  </div>
+</mat-toolbar>
