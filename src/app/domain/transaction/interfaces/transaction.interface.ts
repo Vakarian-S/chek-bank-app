@@ -6,6 +6,8 @@ export interface Transaction {
   createdAt?: Date;
   sender: Account;
   recipient: Account;
+  credit?: number;
+  debit?: number;
 }
 
 export interface TransactionDto {

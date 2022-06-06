@@ -10,10 +10,10 @@ export interface Account {
   bank: string;
   accountType: AccountTypeEnum;
   accountNumber: number;
-  balance: number;
-  transactionsSent: Transaction[];
-  transactionsReceived: Transaction[];
-  savedRecipients: Account[];
+  balance?: number;
+  transactionsSent?: Transaction[];
+  transactionsReceived?: Transaction[];
+  savedRecipients?: Account[];
 }
 
 export interface AccountDto {

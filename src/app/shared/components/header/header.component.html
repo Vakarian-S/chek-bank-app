@@ -1,10 +1,18 @@
 <mat-toolbar [color]="'primary'">
   <div class="toolbar-container">
-    <div><span [routerLink]="['']" class='cursor-pointer'>Mi Banco</span></div>
-    <div>
+    <div class='d-flex align-items-center'><span [routerLink]="['']" class='cursor-pointer'>Mi Banco</span></div>
+    <div class='toolbar-container-actions'>
       <button [routerLink]="['/new-recipient']" mat-raised-button color="basic" class="ml-5">Nuevo Destinatario</button>
       <button [routerLink]="['/deposit']" mat-raised-button color="basic" class="ml-5">Transferir</button>
       <button [routerLink]="['/history']" mat-raised-button color="basic" class="ml-5">Historial</button>
+      <div matTooltip="Click para cambiar" class='account-plate ml-5 cursor-pointer'>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+        <div>
+          <span class='ml-2 mat-body'>Usuario Actual:</span>
+          <span class='ml-2 mat-body'>{{user?.name ?? '...'}}</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </mat-toolbar>

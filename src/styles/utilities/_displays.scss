@@ -1,0 +1,8 @@
+// DISPLAYS
+// =========================================
+$displays: none, inline, inline-block, block, flex, inline-flex !default;
+
+
+@each $value in $displays {
+  .d-#{$value} { display: $value !important; }
+}
