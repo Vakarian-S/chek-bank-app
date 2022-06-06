@@ -6,6 +6,8 @@ import { TransactionHistoryComponent } from './pages/transaction-history.compone
 import { TransactionListComponent } from './components/transaction-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     TransactionHistoryRoutingModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class TransactionHistoryModule { }

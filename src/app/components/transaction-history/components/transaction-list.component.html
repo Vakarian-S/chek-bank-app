@@ -1,51 +1,85 @@
 <div class='w-100 mt-5'>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table w-100">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td mat-cell *matCellDef="let element">{{element.position}}</td>
+  <table mat-table
+         [dataSource]="transactions" multiTemplateDataRows
+         class="mat-elevation-z8 w-100">
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{element.createdAt | date: 'yyyy/MM/dd'}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <td mat-cell *matCellDef="let element">Transferencia: {{element.recipient.name}}</td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef>Weight</th>
-      <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+    <ng-container matColumnDef="debit">
+      <th mat-header-cell *matHeaderCellDef>Cargos</th>
+      <td mat-cell *matCellDef="let element">{{element.credit}}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef>Symbol</th>
-      <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+
+    <ng-container matColumnDef="credit">
+      <th mat-header-cell *matHeaderCellDef>Abono</th>
+      <td mat-cell *matCellDef="let element">{{element.debit}}</td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr
-      mat-row
-      (click)="clickedRows.add(row)"
-      [class.demo-row-is-clicked]="clickedRows.has(row)"
-      *matRowDef="let row; columns: displayedColumns;"
-    ></tr>
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+          <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumnsWithExpand.length">
+        <div class="transaction-detail"
+             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+         <div class='transaction-detail-box d-flex w-100 p-5 my-4'>
+           <div class='w-50 d-flex justify-content-center'>
+             <div class='d-flex flex-column text-right font-weight-bold mr-5'>
+               <span class='mb-1'>Nombre Origen:</span>
+               <span class='mb-1'>Rut Origen:</span>
+               <span class='mb-1'>Cuenta Origen:</span>
+               <span class='mb-1'>Banco Origen:</span>
+             </div>
+             <div class='d-flex flex-column text-left'>
+               <span class='mb-1'>{{element.sender.name}}</span>
+               <span class='mb-1'>{{element.sender.dni}}</span>
+               <span class='mb-1'>{{element.sender.accountNumber}}</span>
+               <span class='mb-1'>{{element.sender.bank}}</span>
+             </div>
+           </div>
+           <div class='w-50 d-flex justify-content-center'>
+             <div class='d-flex flex-column text-right font-weight-bold mr-5'>
+               <span class='mb-1'>Nombre Destinatario:</span>
+               <span class='mb-1'>Rut Destinatario:</span>
+               <span class='mb-1'>Cuenta Destinatario:</span>
+               <span class='mb-1'>Banco Destinatario:</span>
+             </div>
+             <div class='d-flex flex-column'>
+               <span class='mb-1'>{{element.recipient.name}}</span>
+               <span class='mb-1'>{{element.recipient.dni}}</span>
+               <span class='mb-1'>{{element.recipient.accountNumber}}</span>
+               <span class='mb-1'>{{element.recipient.bank}}</span>
+             </div>
+           </div>
+         </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsWithExpand"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumnsWithExpand;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
   </table>
-
-  <div>
-    <h3>
-      Click Log
-    </h3>
-  </div>
-
-  <div *ngIf="!clickedRows.size">
-    Clicked rows will be logged here
-  </div>
-
-  <ul>
-    <li *ngFor="let clickedRow of clickedRows">
-      Clicked on {{clickedRow.name}}
-    </li>
-  </ul>
 </div>
+

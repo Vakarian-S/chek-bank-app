@@ -4,6 +4,8 @@ import { HeaderComponent } from './components/header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -18,7 +20,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatIconModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }

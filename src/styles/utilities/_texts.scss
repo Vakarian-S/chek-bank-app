@@ -1,0 +1,30 @@
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-bold: 700 !default;
+
+// Weight
+.font-weight-light {
+  font-weight: $weight-light !important;
+}
+.font-weight-normal {
+  font-weight: $weight-normal !important;
+}
+.font-weight-medium {
+  font-weight: $weight-medium !important;
+}
+.font-weight-bold {
+  font-weight: $weight-bold !important;
+}
+
+// Text align
+
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
