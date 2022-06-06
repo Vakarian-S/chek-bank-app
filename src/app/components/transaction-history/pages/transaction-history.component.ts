@@ -27,6 +27,7 @@ export class TransactionHistoryComponent implements OnInit {
           ...transaction,
           ...(transaction.sender.accountNumber === this.user?.accountNumber && { credit: transaction.amount }),
           ...(transaction.sender.accountNumber !== this.user?.accountNumber && { debit: transaction.amount }),
+          balance: transaction.sender.accountNumber === this.user?.accountNumber ? transaction.senderBalance : transaction.recipientBalance
         }));
       }
     }

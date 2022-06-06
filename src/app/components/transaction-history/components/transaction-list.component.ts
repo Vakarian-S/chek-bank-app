@@ -16,7 +16,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class TransactionListComponent implements OnInit {
   @Input() transactions: Transaction[] = [];
-  displayedColumns: string[] = ['date', 'description', 'credit', 'debit'];
+  displayedColumns: string[] = ['date', 'description', 'credit', 'debit', 'balance'];
   displayedColumnsWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement: Transaction | undefined;
   constructor() { }

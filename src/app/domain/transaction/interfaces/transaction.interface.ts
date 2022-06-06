@@ -8,6 +8,9 @@ export interface Transaction {
   recipient: Account;
   credit?: number;
   debit?: number;
+  senderBalance: number;
+  recipientBalance: number;
+  balance?: number
 }
 
 export interface TransactionDto {
