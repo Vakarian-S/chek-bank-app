@@ -4,6 +4,7 @@
 
 export const environment = {
   bankServiceUrl: 'http://localhost:3000',
+  bankListServiceUrl: 'https://bast.dev/api/banks.php',
   production: false
 };
 
