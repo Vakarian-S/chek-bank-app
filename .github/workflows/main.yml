@@ -50,5 +50,3 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: google-github-actions/deploy-appengine@c0374ce7602000a1b1dbcf28f7a4ab4361464b5f
         uses: google-github-actions/deploy-appengine@v0.8.0
-        with:
-          working_directory: ../../
