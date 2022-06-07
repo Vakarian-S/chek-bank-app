@@ -1,3 +1,42 @@
 <mat-card class="py-6 px-7">
   <h1>Nuevo Destinatario</h1>
+  <form
+    class="d-flex flex-wrap justify-content-between flex-gap-5 mt-5"
+    *ngIf="recipientForm"
+    [formGroup]="recipientForm"
+  >
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>RUT</mat-label>
+      <input matInput formControlName="dni" />
+    </mat-form-field>
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="phone" />
+    </mat-form-field>
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>Banco</mat-label>
+      <mat-select formControlName="bank">
+        <mat-option *ngFor='let bank of bankList' [value]='bank.name'>{{bank.name |  titlecase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>Tipo de cuenta</mat-label>
+      <mat-select formControlName="accountType">
+        <mat-option *ngFor='let accountType of accountTypes' [value]='accountType'>{{accountType.replace('-',' ') |  titlecase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="flex-grow-1" appearance="fill">
+      <mat-label>N° de Cuenta</mat-label>
+      <input matInput formControlName="accountNumber" />
+    </mat-form-field>
+  </form>
+  <div class="text-right"><button [disabled]='isSubmitting' mat-raised-button color="primary" class="mt-2 px-6" (click)='submit()'>Crear</button></div>
 </mat-card>
