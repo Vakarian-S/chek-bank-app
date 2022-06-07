@@ -26,7 +26,7 @@ export class AccountProxyService {
 
   getRecipients(accountId: string) {
     const url = new URL(`${this.baseUrl}/${accountId}/saved-recipients`);
-    return this.http.get<Account>(url.toString()).toPromise();
+    return this.http.get<Account[]>(url.toString()).toPromise();
   }
 
   addRecipient(accountId: string, accountDto: AccountDto) {

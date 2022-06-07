@@ -1,0 +1,22 @@
+// BORDER RADIUS
+// =========================================
+
+$radius: 0.25rem !default;
+$radius-lg: 1rem !default;
+
+.border-radius {
+  border-radius: $radius !important;
+}
+
+.border-radius-top {
+  border-top-left-radius: $radius !important;
+  border-top-right-radius: $radius !important;
+}
+
+.border-radius-lg {
+  border-radius: $radius-lg !important;
+}
+
+.border-radius-0 {
+  border-radius: 0 !important;
+}
