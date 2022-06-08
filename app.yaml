@@ -6,6 +6,6 @@ handlers:
   - url: /(.*\.(js|css|svg|png)(|\.map))$
   static_files: dist/\1
   upload: dist/(.*)(|\.map)
-    - url: /.*
+  - url: /.*
   static_files: dist/index.html
   upload: dist/.*
