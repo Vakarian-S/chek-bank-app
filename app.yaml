@@ -4,16 +4,14 @@ threadsafe: yes
 service: chek-bank-app
 
 handlers:
-  - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+  # Serve all static files with urls ending with a file extension
+  - url: /(.*\..+)$
     static_files: dist/\1
-    upload: dist/(.*)(|\.map)
-
-  - url: /(.*)
+    upload: dist/(.*\..+)$
+    # catch all handler to index.html
+  - url: /.*
     static_files: dist/index.html
     upload: dist/index.html
-    
-  - url: /.*
-    script: main.app
 
 skip_files:
   - e2e/
