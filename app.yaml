@@ -4,8 +4,9 @@ service: chek-bank-app
 
 handlers:
   - url: /(.*\.(js|css|svg|png)(|\.map))$
-  static_files: dist/\1
-  upload: dist/(.*)(|\.map)
+    static_files: dist/\1
+    upload: dist/(.*)(|\.map)
+
   - url: /.*
-  static_files: dist/index.html
-  upload: dist/.*
+    static_files: dist/index.html
+    upload: dist/.*
