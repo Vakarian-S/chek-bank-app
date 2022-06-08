@@ -3,10 +3,19 @@ runtime: nodejs16
 service: chek-bank-app
 
 handlers:
-  - url: /(.*\.(js|css|svg|png)(|\.map))$
-    static_files: dist/\1
-    upload: dist/(.*)(|\.map)
-
-  - url: /.*
+  - url: /
     static_files: dist/index.html
-    upload: dist/.*
+    upload: dist/index.html
+
+  - url: /
+    static_dir: dist
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
