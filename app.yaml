@@ -1,5 +1,4 @@
-runtime: nodejs
-env: flex
+runtime: nodejs16
 
 service: chek-bank-app
 env_variables:
