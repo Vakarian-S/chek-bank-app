@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  bankServiceUrl: 'http://localhost:3000',
+  bankServiceUrl: 'https://chek-bank-service-dot-chek-app-352602.uc.r.appspot.com',
   bankListServiceUrl: 'https://bast.dev/api/banks.php',
   production: false
 };

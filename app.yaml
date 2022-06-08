@@ -1,2 +1,12 @@
 runtime: nodejs
 env: flex
+service: chek-bank-app
+env_variables:
+  BUCKET_NAME: "your-ng-app-bucket"
+handlers:
+  - url: /
+    static_files: dist/chek-bank-app/index.html
+    upload: dist/chek-bank-app/index.html
+
+  - url: /
+    static_dir: dist/chek-bank-app
