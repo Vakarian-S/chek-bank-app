@@ -1,5 +1,7 @@
-runtime: nodejs16
+runtime: nodejs
 env: flex
+runtime_config:
+  nodejs_version: 16
 service: chek-bank-app
 env_variables:
   BUCKET_NAME: "your-ng-app-bucket"
