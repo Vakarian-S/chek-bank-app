@@ -1,5 +1,5 @@
 runtime: nodejs16
-
+api_version: 1
 service: chek-bank-app
 
 handlers:
