@@ -1,12 +1,22 @@
-runtime: nodejs16
+runtime: python27
 api_version: 1
-service: chek-bank-app
+threadsafe: yes
 
 handlers:
-  - url: /
+  - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+    static_files: dist/\1
+    upload: dist/(.*)(|\.map)
+
+  - url: /(.*)
     static_files: dist/index.html
     upload: dist/index.html
 
-  - url: /
-    static_dir: dist
-
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
