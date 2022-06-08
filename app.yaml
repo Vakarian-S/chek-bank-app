@@ -1,6 +1,7 @@
 runtime: python27
 api_version: 1
 threadsafe: yes
+service: chek-bank-app
 
 handlers:
   - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$

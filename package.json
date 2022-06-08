@@ -1,10 +1,6 @@
 {
   "name": "chek-bank-app",
   "version": "0.0.0",
-  "engines": {
-    "node": "14.x",
-    "npm": ">=6.0.0"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,7 +9,7 @@
     "test": "ng test",
     "gcp-build": "npm run build"
   },
-  "main": "dist/chek-bank-app/index.html",
+  "main": "dist/index.html",
   "private": true,
   "dependencies": {
     "@angular/cli": "~14.0.0",
