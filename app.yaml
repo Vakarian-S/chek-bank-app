@@ -5,8 +5,8 @@ env_variables:
   BUCKET_NAME: "your-ng-app-bucket"
 handlers:
   - url: /
-    static_files: dist/chek-bank-app/index.html
-    upload: dist/chek-bank-app/index.html
+    static_files: dist/index.html
+    upload: dist/index.html
 
   - url: /
-    static_dir: dist/chek-bank-app
+    static_dir: dist
